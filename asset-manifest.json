@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/YethishwarDevPortfolio/static/css/main.2d916dda.css",
+    "main.js": "/YethishwarDevPortfolio/static/js/main.7b8a4e15.js",
+    "static/css/64.bba8fa55.chunk.css": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css",
+    "static/js/64.24a93158.chunk.js": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js",
+    "static/css/769.b3cbb36b.chunk.css": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css",
+    "static/js/769.2c9037c1.chunk.js": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js",
+    "static/media/Atliq.webp": "/YethishwarDevPortfolio/static/media/Atliq.8a7eba6a798e00e1bf19.webp",
+    "static/media/resume.pdf": "/YethishwarDevPortfolio/static/media/resume.f21f771ef20fabd1a47f.pdf",
+    "static/media/datascience.webp": "/YethishwarDevPortfolio/static/media/datascience.e50c6f7b6aa5b0c61728.webp",
+    "static/media/Agustina.woff": "/YethishwarDevPortfolio/static/media/Agustina.73b46554c884e5a370fa.woff",
+    "static/media/Montserrat-Regular.ttf": "/YethishwarDevPortfolio/static/media/Montserrat-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/googleAssistantLogo.webp": "/YethishwarDevPortfolio/static/media/googleAssistantLogo.55961022e1560a180354.webp",
+    "static/media/plant.png": "/YethishwarDevPortfolio/static/media/plant.0a2e8c48e8ab9c9e5f51.png",
+    "static/media/ai.png": "/YethishwarDevPortfolio/static/media/ai.842b59297484435ec7bf.png",
+    "static/media/stanfordLogo.png": "/YethishwarDevPortfolio/static/media/stanfordLogo.562981b5b89d00fca28c.png",
+    "static/media/manOnTable.svg": "/YethishwarDevPortfolio/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
+    "static/media/harvardLogo.png": "/YethishwarDevPortfolio/static/media/harvardLogo.8c8470c0a2dc40b6a597.png",
+    "static/media/viswam.webp": "/YethishwarDevPortfolio/static/media/viswam.8c44968f8ce9e98e4927.webp",
+    "static/media/vismamLogo.png": "/YethishwarDevPortfolio/static/media/vismamLogo.f372fca511a1f239bea6.png",
+    "static/media/contactMailDark.svg": "/YethishwarDevPortfolio/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
+    "static/media/developerActivity.svg": "/YethishwarDevPortfolio/static/media/developerActivity.2c0445cae86f4243433a2f5a22b2c031.svg",
+    "static/media/samushna.webp": "/YethishwarDevPortfolio/static/media/samushna.5479a88ed2b92bd4f3d9.webp",
+    "static/media/codeInLogo.webp": "/YethishwarDevPortfolio/static/media/codeInLogo.f873276b3ba61f1ee14b.webp",
+    "static/media/skill.svg": "/YethishwarDevPortfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
+    "static/media/pwaLogo.webp": "/YethishwarDevPortfolio/static/media/pwaLogo.75f2e8f6553c446e0e4d.webp",
+    "index.html": "/YethishwarDevPortfolio/index.html",
+    "static/media/talksCardBack.svg": "/YethishwarDevPortfolio/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
+    "main.2d916dda.css.map": "/YethishwarDevPortfolio/static/css/main.2d916dda.css.map",
+    "main.7b8a4e15.js.map": "/YethishwarDevPortfolio/static/js/main.7b8a4e15.js.map",
+    "64.bba8fa55.chunk.css.map": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css.map",
+    "64.24a93158.chunk.js.map": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js.map",
+    "769.b3cbb36b.chunk.css.map": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css.map",
+    "769.2c9037c1.chunk.js.map": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d916dda.css",
+    "static/js/main.7b8a4e15.js"
+  ]
+}
