@@ -4,7 +4,7 @@
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
-import { title } from "faker/lib/locales/az";
+import {  } from "faker/lib/locales/az";
 // import Twitter from "./containers/twitter-embed/twitter";
 
 // Splash Screen
@@ -183,7 +183,7 @@ const workExperiences = {
       role: "Junior Data Analyst Intern",
       company: "Samusha Technologies",
       companylogo: require("./assets/images/samush.png"),
-      date: "22 May 2024 – 12 Mar 2025",
+      date: "10 December 2024 – 12 Mar 2025",
       desc: "Managed and analyzed 20,000+ records, generating insights and dashboards using Excel and Power BI. Supported data-driven reporting and analysis through effective data organization and visualization."
     }
   ]
