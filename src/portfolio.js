@@ -4,7 +4,7 @@
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
-import {  } from "faker/lib/locales/az";
+import {} from "faker/lib/locales/az";
 // import Twitter from "./containers/twitter-embed/twitter";
 
 // Splash Screen
