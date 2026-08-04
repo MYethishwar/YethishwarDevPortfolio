@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/YethishwarDevPortfolio/static/css/main.2d916dda.css",
-    "main.js": "/YethishwarDevPortfolio/static/js/main.7b8a4e15.js",
+    "main.js": "/YethishwarDevPortfolio/static/js/main.90f80995.js",
     "static/css/64.bba8fa55.chunk.css": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css",
     "static/js/64.24a93158.chunk.js": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css",
     "static/js/769.2c9037c1.chunk.js": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js",
     "static/media/Atliq.webp": "/YethishwarDevPortfolio/static/media/Atliq.8a7eba6a798e00e1bf19.webp",
-    "static/media/resume.pdf": "/YethishwarDevPortfolio/static/media/resume.f21f771ef20fabd1a47f.pdf",
+    "static/media/resume.pdf": "/YethishwarDevPortfolio/static/media/resume.bd78fc755ca192514b06.pdf",
     "static/media/datascience.webp": "/YethishwarDevPortfolio/static/media/datascience.e50c6f7b6aa5b0c61728.webp",
     "static/media/Agustina.woff": "/YethishwarDevPortfolio/static/media/Agustina.73b46554c884e5a370fa.woff",
     "static/media/Montserrat-Regular.ttf": "/YethishwarDevPortfolio/static/media/Montserrat-Regular.35d26b781dc5fda684cc.ttf",
@@ -26,9 +26,12 @@
     "static/media/skill.svg": "/YethishwarDevPortfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "static/media/pwaLogo.webp": "/YethishwarDevPortfolio/static/media/pwaLogo.75f2e8f6553c446e0e4d.webp",
     "index.html": "/YethishwarDevPortfolio/index.html",
+    "static/media/travelJournal.svg": "/YethishwarDevPortfolio/static/media/travelJournal.bb5afdf75322e11aa03c58934cac1a02.svg",
+    "static/media/voltstream.svg": "/YethishwarDevPortfolio/static/media/voltstream.c817112fcc7108c6f023a21f6fa121b9.svg",
+    "static/media/tachyonLogo.svg": "/YethishwarDevPortfolio/static/media/tachyonLogo.97bbc42b67d8f03723c0b1a6f4593e9f.svg",
     "static/media/talksCardBack.svg": "/YethishwarDevPortfolio/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
     "main.2d916dda.css.map": "/YethishwarDevPortfolio/static/css/main.2d916dda.css.map",
-    "main.7b8a4e15.js.map": "/YethishwarDevPortfolio/static/js/main.7b8a4e15.js.map",
+    "main.90f80995.js.map": "/YethishwarDevPortfolio/static/js/main.90f80995.js.map",
     "64.bba8fa55.chunk.css.map": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css.map",
     "64.24a93158.chunk.js.map": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css.map",
@@ -36,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.2d916dda.css",
-    "static/js/main.7b8a4e15.js"
+    "static/js/main.90f80995.js"
   ]
 }
