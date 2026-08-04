@@ -4,7 +4,6 @@
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
-import {} from "faker/lib/locales/az";
 // import Twitter from "./containers/twitter-embed/twitter";
 
 // Splash Screen
@@ -25,7 +24,7 @@ const greeting = {
   username: "Yethishwar",
   title: "Hi all, I'm Yethishwar",
   subTitle: emoji(
-    "Final-year AI & Data Science student working with data cleaning, preprocessing, and machine learning models using Python and MySQL."
+    "AI/ML Engineer building production-ready AI systems, LLM applications, and agentic workflows — skilled in Generative AI, Machine Learning, and full-stack development. 550+ GitHub commits and counting."
   ),
   resumeLink:
     "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
@@ -51,15 +50,22 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "What I do",
   subTitle:
-    "DATA SCIENCE AND DATA ANALYSIS ENTHUSIAST FOCUSED ON TURNING DATA INTO INSIGHTS",
+    "AI/ML ENGINEER FOCUSED ON GENERATIVE AI, AGENTIC WORKFLOWS, AND PRODUCTION-READY AI SYSTEMS",
   skills: [
-    emoji("⚡ Clean, preprocess, and analyze structured datasets"),
     emoji(
-      "⚡ Perform exploratory data analysis (EDA) to identify patterns and trends"
+      "⚡ Design and ship LLM applications and multi-agent systems using LangChain, LangGraph, and Google ADK"
     ),
-    emoji("⚡ Build and evaluate machine learning models for prediction"),
     emoji(
-      "⚡ Work with Python and MySQL for data-driven analysis and reporting"
+      "⚡ Build Retrieval-Augmented Generation (RAG) pipelines with vector databases like Qdrant and ChromaDB"
+    ),
+    emoji(
+      "⚡ Fine-tune and integrate LLMs (ChatGPT, Gemini, Hugging Face) with strong prompt engineering"
+    ),
+    emoji(
+      "⚡ Deploy AI systems end-to-end on Azure, GCP, and Docker with FastAPI and React"
+    ),
+    emoji(
+      "⚡ Clean, preprocess, and analyze data to build and evaluate machine learning models"
     )
   ],
 
@@ -72,36 +78,52 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-python"
     },
     {
+      skillName: "Generative AI",
+      fontAwesomeClassname: "fas fa-wand-magic-sparkles"
+    },
+    {
+      skillName: "LangChain",
+      fontAwesomeClassname: "fas fa-link"
+    },
+    {
+      skillName: "Agentic AI",
+      fontAwesomeClassname: "fas fa-robot"
+    },
+    {
+      skillName: "RAG",
+      fontAwesomeClassname: "fas fa-magnifying-glass"
+    },
+    {
+      skillName: "FastAPI",
+      fontAwesomeClassname: "fas fa-bolt"
+    },
+    {
+      skillName: "React.js",
+      fontAwesomeClassname: "fab fa-react"
+    },
+    {
       skillName: "MySQL",
       fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "pandas",
-      fontAwesomeClassname: "fas fa-table"
-    },
-    {
-      skillName: "Numpy",
-      fontAwesomeClassname: "fas fa-calculator"
     },
     {
       skillName: "ML",
       fontAwesomeClassname: "fas fa-brain"
     },
     {
-      skillName: "Analysis",
-      fontAwesomeClassname: "fas fa-chart-line"
+      skillName: "Docker",
+      fontAwesomeClassname: "fab fa-docker"
+    },
+    {
+      skillName: "Azure",
+      fontAwesomeClassname: "fab fa-microsoft"
+    },
+    {
+      skillName: "GCP",
+      fontAwesomeClassname: "fab fa-google"
     },
     {
       skillName: "Visualization",
       fontAwesomeClassname: "fas fa-chart-bar"
-    },
-    {
-      skillName: "PowerBI",
-      fontAwesomeClassname: "fas fa-chart-pie"
-    },
-    {
-      skillName: "Excel",
-      fontAwesomeClassname: "fas fa-file-excel"
     },
     {
       skillName: "Git & GitHub",
@@ -122,7 +144,7 @@ const educationInfo = {
       subHeader:
         "Bachelor of Engineering in Artificial Intelligence & Data Science",
       duration: "2022 - 2026",
-      desc: "GPA:  9.11* / 10"
+      desc: "Current CGPA: 9.12 / 10 | Student Sports Coordinator (2023-2024)"
     },
     {
       schoolName: "Telangana State Model School & Junior College, Vemulapally.",
@@ -151,17 +173,24 @@ const techStack = {
       progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "MySQL",
-      progressPercentage: "90%"
+      Stack: "Generative AI & RAG",
+      progressPercentage: "85%"
     },
     {
-      Stack: "Machine Learning",
-      progressPercentage: "90%"
+      Stack: "Agentic AI (LangChain, LangGraph, ADK)",
+      progressPercentage: "80%"
     },
-
     {
-      Stack: "Deep Learning  & LLM's",
-      progressPercentage: "70%"
+      Stack: "Machine Learning & Deep Learning",
+      progressPercentage: "85%"
+    },
+    {
+      Stack: "MySQL / MongoDB",
+      progressPercentage: "85%"
+    },
+    {
+      Stack: "FastAPI & React.js",
+      progressPercentage: "75%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -173,18 +202,35 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Tech-Lead Intern",
+      role: "AI/ML Intern - Software Engineer",
+      company: "Tachyon IT Solutions Pvt Ltd",
+      companylogo: require("./assets/images/tachyonLogo.svg"),
+      date: "April 2026 – Present",
+      desc: "Working on the Customer Self-Service project, building and deploying self-service agents on Azure Cloud. Currently building a Contract Lifecycle Management system.",
+      descBullets: [
+        "Deployed self-service agents on Azure Cloud using Azure Container Apps and Azure AI Foundry",
+        "Working with the Microsoft Agent Framework and a Spring Boot Gateway, containerized with Docker"
+      ]
+    },
+    {
+      role: "Tech-Lead Intern - Generative AI Engineer",
       company: "Viswam AI(Swecha Foundation, Hyderabad)",
       companylogo: require("./assets/images/vismamLogo.png"),
       date: "24 May 2025 – 19 July 2025",
-      desc: "Led a team to develop a Telugu LLM with Text-to-Speech (TTS), coordinating tasks with mentors and Managed team progress, maintained quality, and prepared weekly reports for smooth execution."
+      desc: "Collaborated with the ViswamAI team to collect, clean, and structure Telugu text datasets from multiple sources for AI training and data preparation workflows, coordinating with mentors and managing team progress.",
+      descBullets: [
+        "Gained hands-on experience with FastAPI, text preprocessing, web scraping, and tokenization"
+      ]
     },
     {
       role: "Junior Data Analyst Intern",
       company: "Samusha Technologies",
       companylogo: require("./assets/images/samush.png"),
       date: "10 December 2024 – 12 Mar 2025",
-      desc: "Managed and analyzed 20,000+ records, generating insights and dashboards using Excel and Power BI. Supported data-driven reporting and analysis through effective data organization and visualization."
+      desc: "Collaborated on government welfare data analysis, performing data cleaning, preprocessing, feature engineering, and statistical analysis to improve data quality and generate insights for budget planning and resource allocation.",
+      descBullets: [
+        "Managed and analyzed 20,000+ records, generating insights and dashboards using Excel and Power BI"
+      ]
     }
   ]
 };
@@ -204,11 +250,35 @@ const bigProjects = {
   subtitle: "",
   projects: [
     {
+      image: require("./assets/images/voltstream.svg"),
+      projectName: "VoltStream: Multi-Agent Energy Intelligence Platform (ADK)",
+      projectDesc:
+        "A multi-agent energy intelligence platform built with Google ADK, Gemini, FastAPI, React, Firebase, MongoDB, ChromaDB, and GCP, enabling RAG-powered assistance, device automation, usage analytics, and energy optimization through chat, RAG, and Agent Windows.",
+      footerLink: [
+        {
+          name: "View Source Code",
+          url: "https://github.com/MYethishwar/VoltStream"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/travelJournal.svg"),
+      projectName: "AI-Powered Travel Journal Assistant",
+      projectDesc:
+        "An agentic travel management platform built with React, FastAPI, MongoDB, and Docker, enabling chat-based journal creation, entry modification, authentication, web-assisted responses, expense tracking, image uploads, and destination planning.",
+      footerLink: [
+        {
+          name: "View Source Code",
+          url: "https://github.com/MYethishwar/Travel-Journal-Application"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/ai.png"),
       projectName:
-        "AI-Powered-Website-Assistant-Using-Retrieval-Augmented-Generation",
+        "ContextIQ - Website Assistant using Retrieval Augmented Generation",
       projectDesc:
-        "An intelligent conversational assistant that answers questions based on any content you provide.",
+        "An AI-powered RAG chatbot built with FastAPI, Qdrant, OpenAI Embeddings, and Gradio, enabling website/document-based question answering through semantic search, similarity retrieval, web crawling, and context-grounded response generation.",
       footerLink: [
         {
           name: "View Source Code",
@@ -368,6 +438,38 @@ const achievementSection = {
         {
           name: "Certification",
           url: "https://www.linkedin.com/feed/update/urn:li:activity:7367455940083675137/"
+        }
+      ]
+    },
+
+    {
+      title: "TCS National Qualifier Test (NQT)",
+      subtitle:
+        "Qualified the TCS National Qualifier Test (NQT) for the Digital Role.",
+      image: require("./assets/images/googleAssistantLogo.webp"),
+      imageAlt: "TCS NQT",
+      footerLink: []
+    },
+
+    {
+      title: "Data Science Training Program",
+      subtitle:
+        "Completed a 6-month intensive Data Science training program at ITX Learning Hub.",
+      image: require("./assets/images/codeInLogo.webp"),
+      imageAlt: "ITX Learning Hub",
+      footerLink: []
+    },
+
+    {
+      title: "550+ GitHub Commits",
+      subtitle:
+        "550+ GitHub commits across software development, AI, and data science projects.",
+      image: require("./assets/images/developerActivity.svg"),
+      imageAlt: "GitHub Activity",
+      footerLink: [
+        {
+          name: "View GitHub",
+          url: "https://github.com/MYethishwar"
         }
       ]
     }
