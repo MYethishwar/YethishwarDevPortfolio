@@ -82,9 +82,58 @@
   background-color: $textColor;
 }
 
+/* Priority buttons: GitHub, LinkedIn, Email get a labeled, larger, glowing
+   treatment so visitors are drawn to the 3 main ways to reach out. */
+.icon-button-priority {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 0.3rem 0.9rem 0.3rem 0.3rem;
+  border-radius: 2.6rem;
+  background-color: rgba(134, 142, 150, 0.12);
+  transition: 0.2s ease-in;
+}
+
+.icon-button-priority i {
+  width: 2.9rem;
+  height: 2.9rem;
+  line-height: 2.9rem;
+  font-size: 1.5rem;
+  margin: 0 0.6rem 0 0;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5),
+    0 4px 14px -4px rgba(0, 0, 0, 0.4);
+}
+
+.icon-button-label {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: $textColor;
+  text-decoration: none;
+}
+
+.icon-button-priority:hover {
+  background-color: rgba(134, 142, 150, 0.22);
+  transform: translateY(-2px);
+}
+
+.icon-button-priority:hover i {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7),
+    0 6px 18px -4px rgba(0, 0, 0, 0.45);
+}
+
 /* Media Query */
 @media (max-width: 768px) {
   .social-media-div {
     text-align: center;
+  }
+  .icon-button-priority {
+    margin-right: 6px;
+    padding-right: 0.7rem;
+  }
+  .icon-button-label {
+    font-size: 0.9rem;
   }
 }

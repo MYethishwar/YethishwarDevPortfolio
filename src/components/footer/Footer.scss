@@ -3,6 +3,8 @@
 .footer-text {
   text-align: center;
   color: $subTitle !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
 }
 
 .dark-mode {
@@ -10,6 +12,7 @@
 }
 
 .footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  margin-top: 3rem;
+  padding: 1.6rem 0 2rem;
+  border-top: 1px solid rgba(134, 142, 150, 0.16);
 }

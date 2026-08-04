@@ -13,24 +13,39 @@
 }
 
 .contact-title {
+  position: relative;
+  display: inline-block;
   font-size: 65px;
   font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+.contact-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 64px;
+  border-radius: 999px;
+  background: $accentGradient;
 }
 
 .contact-detail,
 .contact-detail-email {
   margin-top: 20px;
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 34px;
+  font-weight: 600;
   color: $subTitle;
   text-decoration: none;
+  display: inline-block;
+  transition: transform 0.25s $easeOutExpo, color 0.25s ease;
 }
 
 .contact-detail:hover,
 .contact-detail-email:hover {
-  color: $textColor;
-  text-shadow: 2px 1px 2px $contactDetailHoverTS;
-  transition: all 0.3s;
+  color: #6d28d9;
+  transform: translateX(4px);
+  text-shadow: none;
 }
 
 .contact-subtitle {

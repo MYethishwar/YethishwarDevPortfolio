@@ -1,6 +1,22 @@
+@import "../../_globalColor";
+
 .education-heading {
+  position: relative;
+  display: inline-block;
   font-size: 56px;
   font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+.education-heading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 5px;
+  width: 64px;
+  border-radius: 999px;
+  background: $accentGradient;
 }
 
 .education-section {
@@ -14,12 +30,12 @@
 
 .education-section > * {
   flex: 1;
-  margin-bottom: 30px;
 }
 
 .education-card-container {
   display: flex;
   flex-direction: column;
+  gap: 1.1rem;
   padding-top: 20px;
 }
 

@@ -3,21 +3,31 @@
 .experience-card {
   position: relative;
   background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  border-radius: 10px;
+  box-shadow: $shadowSm;
+  border-radius: $radiusMd;
   border: 1px solid $lightBorder1;
+  overflow: hidden;
+  transition: transform 0.35s $easeOutExpo, box-shadow 0.35s $easeOutExpo;
 }
 
 .experience-card-dark {
   position: relative;
   background-color: $darkBackground;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
+  box-shadow: $shadowMdDark;
+  border-radius: $radiusMd;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: transform 0.35s $easeOutExpo, box-shadow 0.35s $easeOutExpo;
 }
 
-.experience-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+.experience-card:hover,
+.experience-card-dark:hover {
+  transform: translateY(-6px);
+  box-shadow: $shadowMd;
+}
+
+.experience-card-dark:hover {
+  box-shadow: $shadowLgDark;
 }
 
 .experience-banner {
@@ -25,7 +35,7 @@
   background-repeat: no-repeat;
   background-size: 150%;
   background: $experienceCardBannerLG;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0;
   -webkit-filter: blur(0px);
   -moz-filter: blur(0px);
   -o-filter: blur(0px);
@@ -49,7 +59,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  border-radius: 10px 10px 0px 0px;
 }
 
 .experience-div-company {
@@ -87,8 +96,16 @@
   margin-right: auto;
   width: 8rem;
   height: 8rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.25);
   border-radius: 50%;
+  border: 4px solid $lightBackground1;
+  background-color: $lightBackground1;
+  transition: transform 0.3s $easeOutBack;
+}
+
+.experience-card:hover .experience-roundedimg,
+.experience-card-dark:hover .experience-roundedimg {
+  transform: scale(1.06);
 }
 
 .experience-text-role {
@@ -105,11 +122,20 @@
 }
 .experience-text-date {
   text-align: center;
-  color: $textColor;
-  font-size: 20px;
-  margin: 0px;
-  padding-top: 1rem;
-  font-weight: 600;
+  color: $accentEnd;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0px auto;
+  margin-top: 0.7rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: $accentGradientSoft;
+  width: max-content;
+}
+
+.dark-mode-text.experience-text-date {
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.16);
 }
 
 .experience-text-desc {
@@ -132,7 +158,7 @@
     font-size: 22px;
   }
   .experience-text-date {
-    font-size: 18px;
+    font-size: 14px;
   }
   .experience-roundedimg {
     width: 6.5rem;
@@ -148,7 +174,7 @@
     font-size: 22px;
   }
   .experience-text-date {
-    font-size: 18px;
+    font-size: 14px;
   }
   .experience-text-desc {
     font-size: 16px;

@@ -1,26 +1,52 @@
 @import "../../_globalColor";
 
 .meter {
-  height: 20px;
+  height: 14px;
   position: relative;
   background: $progressBarBackground;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .meter > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: $progressBarSpanBG;
+  border-radius: 25px;
+  background: $accentGradient;
   position: relative;
   overflow: hidden;
+  width: 0%;
+  transition: width 1s $easeOutExpo;
+}
+.meter > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  animation: meter-shine 2.6s ease-in-out infinite;
+}
+@keyframes meter-shine {
+  0% {
+    background-position: 140% 0;
+  }
+  100% {
+    background-position: -60% 0;
+  }
 }
 .skill {
   line-height: 3.5vw;
+}
+.skill > p {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
 }
 .skill-bars {
   font-size: 28px;
@@ -28,6 +54,7 @@
 }
 .skills-container {
   display: flex;
+  align-items: center;
   width: 90%;
   padding: 20px 10px;
   margin: 0px auto;
@@ -66,5 +93,14 @@
   .skills-image {
     display: none;
     order: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meter > span {
+    transition: none;
+  }
+  .meter > span::after {
+    animation: none;
   }
 }

@@ -2,6 +2,7 @@
 
 .skills-main-div {
   display: flex;
+  align-items: center;
   width: 100%;
   overflow: hidden;
 }
@@ -21,8 +22,22 @@
 }
 
 .skills-heading {
+  position: relative;
+  display: inline-block;
   font-size: 56px;
   font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+.skills-heading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 5px;
+  width: 64px;
+  border-radius: 999px;
+  background: $accentGradient;
 }
 .subTitle {
   color: $subTitle;

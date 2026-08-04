@@ -3,29 +3,85 @@
 .dev-icons {
   padding-left: 0;
   list-style: none;
-  font-size: 3rem;
   margin-bottom: 0px;
   margin-top: 0px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
 }
 
 .software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  border-radius: $radiusLg;
+  background: $lightBackground3;
+  border: 1px solid rgba(134, 142, 150, 0.18);
+  box-shadow: $shadowSm;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.25s $easeOutExpo, box-shadow 0.25s $easeOutExpo,
+    background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.dev-icons-in-view .software-skill-inline {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s $easeOutExpo, transform 0.5s $easeOutExpo,
+    box-shadow 0.25s $easeOutExpo, background-color 0.25s ease,
+    border-color 0.25s ease;
+  transition-delay: calc(var(--stagger-index) * 45ms);
+}
+
+.software-skill-inline:hover {
+  transform: translateY(-4px);
+  box-shadow: $shadowMd;
+  background: #fff;
+  border-color: rgba(124, 58, 237, 0.35);
 }
 
 .software-skill-inline > i {
   color: $subTitle;
+  font-size: 1.4rem;
+  width: 1.4rem;
+  text-align: center;
+  transition: color 0.2s ease, transform 0.2s $easeOutBack;
 }
 
-.software-skill-inline > i:hover {
-  color: $skillsColor;
+.software-skill-inline:hover > i {
+  color: #6d28d9;
+  transform: scale(1.15);
 }
 .software-skill-inline > p {
   color: $subTitle;
-  font-size: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
 }
-.software-skill-inline > i:hover ~ p {
-  color: $skillsColor;
+.software-skill-inline:hover > p {
+  color: $textColor;
+}
+
+.dark-mode .software-skill-inline {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.dark-mode .software-skill-inline:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+.dark-mode .software-skill-inline:hover > p {
+  color: $textColorDark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .software-skill-inline {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

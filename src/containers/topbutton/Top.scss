@@ -2,21 +2,43 @@
 
 #topButton {
   visibility: hidden;
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 24px;
+  right: 24px;
   z-index: 99;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   outline: none;
-  background-color: $buttonColor;
+  background: $accentGradient;
   color: white;
   cursor: pointer;
-  padding: 15px;
-  border-radius: 15px;
-  font-size: 25px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  box-shadow: $shadowMd;
+  transition: opacity 0.3s $easeOutExpo, transform 0.3s $easeOutExpo,
+    box-shadow 0.3s $easeOutExpo, visibility 0.3s;
+}
+
+#topButton.topButton-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 #topButton:hover {
-  background-color: $topButtonHover;
-  transition: all ease-in-out 0.2s;
+  box-shadow: $shadowLg;
+  transform: translateY(-3px) scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #topButton {
+    transition: opacity 0.2s linear, visibility 0.2s;
+    transform: none !important;
+  }
 }

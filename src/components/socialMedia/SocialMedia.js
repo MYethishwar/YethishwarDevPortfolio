@@ -1,46 +1,54 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./SocialMedia.scss";
 import {socialMediaLinks} from "../../portfolio";
+import StyleContext from "../../contexts/StyleContext";
 
-export default function socialMedia() {
+export default function SocialMedia() {
+  const {isDark} = useContext(StyleContext);
   if (!socialMediaLinks.display) {
     return null;
   }
+  const labelClass = isDark
+    ? "icon-button-label dark-mode-text"
+    : "icon-button-label";
   return (
     <div className="social-media-div">
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}
-          className="icon-button github"
+          className="icon-button icon-button-priority github"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my GitHub profile"
         >
-          <i className="fab fa-github"></i>
-          <span></span>
+          <i className="fab fa-github" aria-hidden="true"></i>
+          <span className={labelClass}>GitHub</span>
         </a>
       ) : null}
 
       {socialMediaLinks.linkedin ? (
         <a
           href={socialMediaLinks.linkedin}
-          className="icon-button linkedin"
+          className="icon-button icon-button-priority linkedin"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Connect with me on LinkedIn"
         >
-          <i className="fab fa-linkedin-in"></i>
-          <span></span>
+          <i className="fab fa-linkedin-in" aria-hidden="true"></i>
+          <span className={labelClass}>LinkedIn</span>
         </a>
       ) : null}
 
       {socialMediaLinks.gmail ? (
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
-          className="icon-button google"
+          className="icon-button icon-button-priority google"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Email me"
         >
-          <i className="fas fa-envelope"></i>
-          <span></span>
+          <i className="fas fa-envelope" aria-hidden="true"></i>
+          <span className={labelClass}>Email</span>
         </a>
       ) : null}
 
@@ -50,8 +58,9 @@ export default function socialMedia() {
           className="icon-button gitlab"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my GitLab profile"
         >
-          <i className="fab fa-gitlab"></i>
+          <i className="fab fa-gitlab" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -62,8 +71,9 @@ export default function socialMedia() {
           className="icon-button facebook"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my Facebook profile"
         >
-          <i className="fab fa-facebook-f"></i>
+          <i className="fab fa-facebook-f" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -74,8 +84,9 @@ export default function socialMedia() {
           className="icon-button instagram"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my Instagram profile"
         >
-          <i className="fab fa-instagram"></i>
+          <i className="fab fa-instagram" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -86,8 +97,9 @@ export default function socialMedia() {
           className="icon-button twitter"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my Twitter profile"
         >
-          <i className="fab fa-twitter"></i>
+          <i className="fab fa-twitter" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -98,8 +110,9 @@ export default function socialMedia() {
           className="icon-button medium"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Read my Medium blog"
         >
-          <i className="fab fa-medium"></i>
+          <i className="fab fa-medium" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -110,8 +123,9 @@ export default function socialMedia() {
           className="icon-button stack-overflow"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my Stack Overflow profile"
         >
-          <i className="fab fa-stack-overflow"></i>
+          <i className="fab fa-stack-overflow" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}
@@ -122,8 +136,9 @@ export default function socialMedia() {
           className="icon-button kaggle"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my Kaggle profile"
         >
-          <i className="fab fa-kaggle"></i>
+          <i className="fab fa-kaggle" aria-hidden="true"></i>
           <span></span>
         </a>
       ) : null}

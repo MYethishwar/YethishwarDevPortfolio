@@ -8,7 +8,7 @@
 /* header */
 
 .dark-menu {
-  background-color: $darkBackground !important;
+  background-color: rgba(23, 28, 40, 0.75) !important;
   color: $textColorDark;
 }
 
@@ -17,14 +17,23 @@
 }
 
 .dark-menu li a:hover {
-  background-color: $buttonColor !important;
+  background-color: transparent !important;
+  color: #a78bfa !important;
+}
+
+.dark-menu .logo-name {
+  color: $textColorDark;
 }
 
 .header {
-  background-color: $lightBackground1;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   max-width: 100%;
-  padding: 15px 20px;
+  padding: 12px 24px;
   margin: 0px auto;
+  border-bottom: 1px solid rgba(134, 142, 150, 0.14);
+  transition: box-shadow 0.3s $easeOutExpo, background-color 0.3s $easeOutExpo;
 }
 
 .header ul {
@@ -40,23 +49,53 @@
 
 .header li a {
   display: block;
-  padding: 15px 20px;
+  position: relative;
+  padding: 15px 18px;
   color: $textColor;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.header li a:hover,
+.header li a::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 9px;
+  height: 2px;
+  border-radius: 2px;
+  background: $accentGradient;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s $easeOutExpo;
+}
+
+.header li a:hover {
+  background-color: transparent;
+  color: #6d28d9;
+}
+
+.header li a:hover::after {
+  transform: scaleX(1);
+}
+
+.dark-menu li a::after {
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
+}
+
 .header .menu-btn:hover {
-  background-color: $headerHoverBG;
+  background-color: transparent;
 }
 
 .header .logo {
-  display: block;
+  display: flex;
+  align-items: center;
   flex: none;
   float: left;
   font-size: 1.5em;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 0;
   line-height: normal;
 }
 
@@ -65,7 +104,11 @@
   font-weight: bold;
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
-  padding: 0 10px;
+  padding: 0 8px;
+  background: $accentGradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* menu */
@@ -73,7 +116,7 @@
 .header .menu {
   clear: both;
   max-height: 0;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.25s $easeOutExpo;
 }
 
 /* menu icon */
@@ -178,5 +221,31 @@
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .header .menu li {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.25s $easeOutExpo, transform 0.25s $easeOutExpo;
+  }
+  .header .menu-btn:checked ~ .menu li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .header .menu-btn:checked ~ .menu li:nth-child(1) {
+    transition-delay: 0.03s;
+  }
+  .header .menu-btn:checked ~ .menu li:nth-child(2) {
+    transition-delay: 0.06s;
+  }
+  .header .menu-btn:checked ~ .menu li:nth-child(3) {
+    transition-delay: 0.09s;
+  }
+  .header .menu-btn:checked ~ .menu li:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+  .header .menu-btn:checked ~ .menu li:nth-child(5) {
+    transition-delay: 0.15s;
   }
 }

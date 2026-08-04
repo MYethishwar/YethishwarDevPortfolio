@@ -88,3 +88,33 @@ $medium: #000;
 $stackoverflow: #f48024;
 $instagram: #c13584;
 $kaggle: #20beff;
+
+// ---- Modern design system tokens (additive, don't remove the above) ----
+
+// accent gradient (echoes $buttonColor but more vivid for decorative use)
+$accentStart: #7c3aed;
+$accentMid: #6d5bf2;
+$accentEnd: #4f46e5;
+$accentGradient: linear-gradient(135deg, $accentStart, $accentEnd);
+$accentGradientSoft: linear-gradient(
+  135deg,
+  rgba(124, 58, 237, 0.12),
+  rgba(79, 70, 229, 0.08)
+);
+$accentGlow: rgba(124, 58, 237, 0.35);
+
+// radius scale
+$radiusSm: 10px;
+$radiusMd: 16px;
+$radiusLg: 22px;
+
+// elevation scale
+$shadowSm: 0 2px 10px -2px rgba(20, 20, 43, 0.12);
+$shadowMd: 0 14px 30px -12px rgba(20, 20, 43, 0.18);
+$shadowLg: 0 26px 50px -16px rgba(20, 20, 43, 0.24);
+$shadowMdDark: 0 14px 30px -12px rgba(0, 0, 0, 0.5);
+$shadowLgDark: 0 26px 50px -16px rgba(0, 0, 0, 0.55);
+
+// motion easing
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+$easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);

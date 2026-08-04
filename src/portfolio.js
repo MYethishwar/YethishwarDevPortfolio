@@ -26,8 +26,7 @@ const greeting = {
   subTitle: emoji(
     "AI/ML Engineer building production-ready AI systems, LLM applications, and agentic workflows — skilled in Generative AI, Machine Learning, and full-stack development. 550+ GitHub commits and counting."
   ),
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
+  resumeLink: "", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -79,7 +78,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "Generative AI",
-      fontAwesomeClassname: "fas fa-wand-magic-sparkles"
+      fontAwesomeClassname: "fas fa-magic"
     },
     {
       skillName: "LangChain",
@@ -91,7 +90,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "RAG",
-      fontAwesomeClassname: "fas fa-magnifying-glass"
+      fontAwesomeClassname: "fas fa-search"
     },
     {
       skillName: "FastAPI",
@@ -144,7 +143,7 @@ const educationInfo = {
       subHeader:
         "Bachelor of Engineering in Artificial Intelligence & Data Science",
       duration: "2022 - 2026",
-      desc: "Current CGPA: 9.12 / 10 | Student Sports Coordinator (2023-2024)"
+      desc: "Current CGPA: 9.12 / 10"
     },
     {
       schoolName: "Telangana State Model School & Junior College, Vemulapally.",
@@ -204,13 +203,10 @@ const workExperiences = {
     {
       role: "AI/ML Intern - Software Engineer",
       company: "Tachyon IT Solutions Pvt Ltd",
-      companylogo: require("./assets/images/tachyonLogo.svg"),
+      companylogo: require("./assets/images/tachyonLogo.jpg"),
+      logoStyle: {objectFit: "cover", objectPosition: "left"},
       date: "April 2026 – Present",
-      desc: "Working on the Customer Self-Service project, building and deploying self-service agents on Azure Cloud. Currently building a Contract Lifecycle Management system.",
-      descBullets: [
-        "Deployed self-service agents on Azure Cloud using Azure Container Apps and Azure AI Foundry",
-        "Working with the Microsoft Agent Framework and a Spring Boot Gateway, containerized with Docker"
-      ]
+      desc: ""
     },
     {
       role: "Tech-Lead Intern - Generative AI Engineer",
@@ -240,7 +236,7 @@ To know how to get github key look at readme.md */
 
 const openSource = {
   showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Some big projects you have worked on
@@ -250,7 +246,7 @@ const bigProjects = {
   subtitle: "",
   projects: [
     {
-      image: require("./assets/images/voltstream.svg"),
+      image: require("./assets/images/voltstream.jpg"),
       projectName: "VoltStream: Multi-Agent Energy Intelligence Platform (ADK)",
       projectDesc:
         "A multi-agent energy intelligence platform built with Google ADK, Gemini, FastAPI, React, Firebase, MongoDB, ChromaDB, and GCP, enabling RAG-powered assistance, device automation, usage analytics, and energy optimization through chat, RAG, and Agent Windows.",
@@ -262,7 +258,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/travelJournal.svg"),
+      image: require("./assets/images/travel_j.png"),
       projectName: "AI-Powered Travel Journal Assistant",
       projectDesc:
         "An agentic travel management platform built with React, FastAPI, MongoDB, and Docker, enabling chat-based journal creation, entry modification, authentication, web-assisted responses, expense tracking, image uploads, and destination planning.",
@@ -274,7 +270,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/ai.png"),
+      image: require("./assets/images/websiteAssistant.jpg"),
       projectName:
         "ContextIQ - Website Assistant using Retrieval Augmented Generation",
       projectDesc:
@@ -446,17 +442,8 @@ const achievementSection = {
       title: "TCS National Qualifier Test (NQT)",
       subtitle:
         "Qualified the TCS National Qualifier Test (NQT) for the Digital Role.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
+      image: require("./assets/images/tcs.jpg"),
       imageAlt: "TCS NQT",
-      footerLink: []
-    },
-
-    {
-      title: "Data Science Training Program",
-      subtitle:
-        "Completed a 6-month intensive Data Science training program at ITX Learning Hub.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "ITX Learning Hub",
       footerLink: []
     },
 
@@ -464,7 +451,7 @@ const achievementSection = {
       title: "550+ GitHub Commits",
       subtitle:
         "550+ GitHub commits across software development, AI, and data science projects.",
-      image: require("./assets/images/developerActivity.svg"),
+      image: require("./assets/images/github.jpg"),
       imageAlt: "GitHub Activity",
       footerLink: [
         {
@@ -472,6 +459,16 @@ const achievementSection = {
           url: "https://github.com/MYethishwar"
         }
       ]
+    },
+
+    {
+      title: "ITX Learning Hub - Data Science Certificate",
+      subtitle:
+        "Certificate of Completion for the 6-month intensive Data Science training program at ITX Learning Hub.",
+      image: require("./assets/images/ITX_certificate.jpg"),
+      imageAlt: "ITX Learning Hub Certificate",
+      featured: true,
+      footerLink: []
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -545,7 +542,7 @@ const resumeSection = {
   subtitle: "Feel free to download my resume",
 
   // Please Provide with Your Podcast embeded Link
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 const contactInfo = {

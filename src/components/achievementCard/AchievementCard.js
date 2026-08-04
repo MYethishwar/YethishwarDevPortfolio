@@ -11,8 +11,15 @@ export default function AchievementCard({cardInfo, isDark}) {
     win.focus();
   }
 
+  const featured = Boolean(cardInfo.featured);
+
   return (
-    <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
+    <div
+      className={
+        (isDark ? "dark-mode certificate-card" : "certificate-card") +
+        (featured ? " certificate-card-featured" : "")
+      }
+    >
       <div className="certificate-image-div">
         <img
           src={cardInfo.image}
@@ -21,6 +28,9 @@ export default function AchievementCard({cardInfo, isDark}) {
         ></img>
       </div>
       <div className="certificate-detail-div">
+        {featured ? (
+          <span className="certificate-featured-badge">Certificate</span>
+        ) : null}
         <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
           {cardInfo.title}
         </h5>

@@ -3,26 +3,40 @@
 .education-card {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  background-color: $lightBackground2;
+  border: 1px solid $lightBorder1;
+  border-radius: $radiusMd;
+  box-shadow: $shadowSm;
+  padding: 1.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s $easeOutExpo, box-shadow 0.3s $easeOutExpo;
 }
 
-.education-card:hover + .education-card-border {
-  border-color: $educationCardBorder;
-  width: 100%;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+.education-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background: $accentGradient;
 }
 
+.education-card:hover {
+  transform: translateY(-4px);
+  box-shadow: $shadowMd;
+}
+
+.dark-mode .education-card {
+  background-color: $darkBackground;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Retired in favor of the card elevation above. */
 .education-card-border {
-  height: 30px;
-  width: 80%;
-  border-top: 2px solid $lightBorder1;
-  margin-bottom: 20px;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+  display: none;
 }
 
 .education-head {
@@ -32,21 +46,23 @@
 
 .education-text-school {
   margin: 0;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  height: 27px;
+  height: auto;
 }
 
 .education-roundedimg {
   object-fit: cover;
   margin-right: 2rem;
-  width: 6rem;
-  height: 6rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
+  width: 5.5rem;
+  height: 5.5rem;
+  flex-shrink: 0;
+  box-shadow: $shadowSm;
   border-radius: 50%;
+  border: 3px solid $lightBackground1;
 }
 
 .education-card-right {
@@ -56,22 +72,33 @@
 .education-text-subHeader {
   color: $textColor;
   font-weight: 700;
-  font-size: 19px;
+  font-size: 18px;
   margin: 0px;
-  padding-top: 0.8rem;
+  padding-top: 0.5rem;
   line-height: normal;
 }
 
 .education-text-duration {
-  color: $titleColor;
-  font-size: 19px;
+  display: inline-block;
+  color: $accentEnd;
+  font-weight: 600;
+  font-size: 15px;
   margin: 0px;
-  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: $accentGradientSoft;
+}
+
+.dark-mode.education-text-duration {
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.16);
 }
 
 .education-text-desc {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   margin-bottom: 0.5rem;
+  color: $cardSubtitle;
 }
 
 .education-text-bullets > ul {
@@ -83,13 +110,11 @@
 @media (max-width: 1380px) {
   .education-card {
     flex-direction: column;
-    padding-bottom: 10px;
+    align-items: flex-start;
+    padding-bottom: 1.4rem;
   }
   .education-card-right {
-    max-width: 90%;
-  }
-  .education-card-border {
-    width: 90%;
+    max-width: 100%;
   }
   .education-text-subHeader {
     padding-top: 0.5rem;
@@ -97,15 +122,16 @@
   }
   .education-text-school {
     font-size: 20px;
-    height: 23px;
+    white-space: normal;
+    height: auto;
   }
   .education-text-duration {
-    font-size: 16px;
+    font-size: 14px;
   }
   .education-roundedimg {
     width: 4rem;
     height: 4rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     margin-right: 0px;
   }
 }
@@ -113,18 +139,16 @@
 @media (max-width: 768px) {
   .education-card {
     text-align: center;
+    align-items: center;
   }
   .education-card-right {
     max-width: 100%;
   }
-  .education-card-border {
-    width: 100%;
-  }
   .education-roundedimg {
-    margin-top: 10px;
+    margin-top: 0;
     width: 4rem;
     height: 4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     margin-right: 0;
   }
   .education-text-bullets > ul {
