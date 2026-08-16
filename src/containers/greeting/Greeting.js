@@ -1,69 +1,82 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Fade} from "react-reveal";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
 import landingPerson from "../../assets/lottie/landingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 import {illustration, greeting} from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
+
+// Pulled out of the prose so the hero leads with three scannable facts
+// instead of one dense paragraph the eye slides straight off.
+const HERO_STATS = [
+  {value: "550+", label: "GitHub commits"},
+  {value: "3", label: "AI/ML internships"},
+  {value: "9.12", label: "CGPA / 10"}
+];
 
 export default function Greeting() {
-  const {isDark} = useContext(StyleContext);
   if (!greeting.displayGreeting) {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="40px">
-      <div className="greet-main" id="greeting">
-        <div className="greeting-main">
-          <div className="greeting-text-div">
-            <div>
-              <h1
-                className={isDark ? "dark-mode greeting-text" : "greeting-text"}
-              >
-                {" "}
-                {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
-              </h1>
-              <p
-                className={
-                  isDark
-                    ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
-                }
-              >
-                {greeting.subTitle}
-              </p>
-              <div id="resume" className="empty-div"></div>
-              <SocialMedia />
-              <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
-                {greeting.resumeLink && (
-                  <a
-                    href={require("./resume.pdf")}
-                    download="Resume.pdf"
-                    className="download-link-button"
-                  >
-                    <Button text="Download my resume" />
-                  </a>
-                )}
-              </div>
+    <section className="hero" id="greeting">
+      <div className="hero-glow" aria-hidden="true" />
+      {/* Fade wraps the whole grid rather than each column: react-reveal
+          inserts its own div, and per-column that div would become the grid
+          item, so the mobile re-ordering below would have nothing to act on. */}
+      <Fade bottom duration={900} distance="30px">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <span className="eyebrow">AI / ML Engineer</span>
+            <h1 className="hero-title">
+              Hi all, I&apos;m <span className="hero-name">Yethishwar</span>
+              <span className="wave-emoji">{emoji("👋")}</span>
+            </h1>
+            <p className="hero-sub">{greeting.subTitle}</p>
+
+            <ul className="hero-stats">
+              {HERO_STATS.map(stat => (
+                <li key={stat.label}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </li>
+              ))}
+            </ul>
+
+            <SocialMedia />
+
+            <div className="hero-actions">
+              <a className="btn btn--primary" href="#contact">
+                Contact me
+              </a>
+              <a className="btn btn--ghost" href="#projects">
+                View my work
+              </a>
+              {greeting.resumeLink && (
+                <a
+                  className="btn btn--ghost"
+                  href={require("./resume.pdf")}
+                  download="Resume.pdf"
+                >
+                  Download resume
+                </a>
+              )}
             </div>
           </div>
-          <div className="greeting-image-div">
+
+          <div className="hero-art">
             {illustration.animated ? (
               <DisplayLottie animationData={landingPerson} />
             ) : (
               <img
-                alt="man sitting on table"
+                alt="Developer at a desk"
                 src={require("../../assets/images/manOnTable.svg")}
-              ></img>
+              />
             )}
           </div>
         </div>
-      </div>
-    </Fade>
+      </Fade>
+    </section>
   );
 }

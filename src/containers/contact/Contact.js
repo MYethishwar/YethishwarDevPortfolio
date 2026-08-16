@@ -1,69 +1,71 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./Contact.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
+import SectionHeading from "../../components/sectionHeading/SectionHeading";
 import {illustration, contactInfo} from "../../portfolio";
 import {Fade} from "react-reveal";
 import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import StyleContext from "../../contexts/StyleContext";
 
 export default function Contact() {
-  const {isDark} = useContext(StyleContext);
   return (
-    <Fade bottom duration={1000} distance="20px">
-      <div className="main contact-margin-top" id="contact">
-        <div className="contact-div-main">
-          <div className="contact-header">
-            <h1 className="heading contact-title">{contactInfo.title}</h1>
-            <p
-              className={
-                isDark
-                  ? "dark-mode contact-subtitle"
-                  : "subTitle contact-subtitle"
-              }
-            >
-              {contactInfo.subtitle}
-            </p>
-            <div
-              className={
-                isDark ? "dark-mode contact-text-div" : "contact-text-div"
-              }
-            >
-              {contactInfo.number && (
-                <>
-                  <a
-                    className="contact-detail"
-                    href={"tel:" + contactInfo.number}
-                  >
-                    {contactInfo.number}
-                  </a>
-                  <br />
-                  <br />
-                </>
-              )}
+    <section className="section" id="contact">
+      <div className="container">
+        <SectionHeading
+          eyebrow="Contact"
+          title="Let's build something"
+          subtitle={contactInfo.subtitle}
+        />
+
+        <Fade bottom duration={900} distance="20px">
+          <div className="contact-grid">
+            <div className="contact-details">
+              {contactInfo.number ? (
+                <a
+                  className="contact-row"
+                  href={`tel:${contactInfo.number}`}
+                  aria-label={`Call ${contactInfo.number}`}
+                >
+                  <span className="contact-icon">
+                    <i className="fas fa-phone" aria-hidden="true"></i>
+                  </span>
+                  <span className="contact-row-text">
+                    <small>Phone</small>
+                    <strong>{contactInfo.number}</strong>
+                  </span>
+                </a>
+              ) : null}
+
               <a
-                className="contact-detail-email"
-                href={"mailto:" + contactInfo.email_address}
+                className="contact-row"
+                href={`mailto:${contactInfo.email_address}`}
+                aria-label={`Email ${contactInfo.email_address}`}
               >
-                {contactInfo.email_address}
+                <span className="contact-icon">
+                  <i className="fas fa-envelope" aria-hidden="true"></i>
+                </span>
+                <span className="contact-row-text">
+                  <small>Email</small>
+                  <strong>{contactInfo.email_address}</strong>
+                </span>
               </a>
-              <br />
-              <br />
+
               <SocialMedia />
             </div>
+
+            <div className="contact-art">
+              {illustration.animated ? (
+                <DisplayLottie animationData={email} />
+              ) : (
+                <img
+                  alt="Get in touch"
+                  src={require("../../assets/images/contactMailDark.svg")}
+                />
+              )}
+            </div>
           </div>
-          <div className="contact-image-div">
-            {illustration.animated ? (
-              <DisplayLottie animationData={email} />
-            ) : (
-              <img
-                alt="Man working"
-                src={require("../../assets/images/contactMailDark.svg")}
-              ></img>
-            )}
-          </div>
-        </div>
+        </Fade>
       </div>
-    </Fade>
+    </section>
   );
 }

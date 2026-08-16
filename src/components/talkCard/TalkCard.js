@@ -4,7 +4,7 @@ import "./TalkCard.scss";
 export default function TalkCard({talkDetails}) {
   return (
     <div>
-      <div className="container">
+      <div className="talk-card-container">
         <div
           className={
             talkDetails.isDark ? "dark-rectangle rectangle" : "rectangle"

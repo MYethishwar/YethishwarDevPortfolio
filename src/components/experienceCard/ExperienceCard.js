@@ -1,85 +1,46 @@
-import React, {useState, createRef} from "react";
+import React from "react";
 import "./ExperienceCard.scss";
-import ColorThief from "colorthief";
 
-export default function ExperienceCard({cardInfo, isDark}) {
-  const [colorArrays, setColorArrays] = useState([]);
-  const imgRef = createRef();
-
-  function getColorArrays() {
-    const colorThief = new ColorThief();
-    setColorArrays(colorThief.getColor(imgRef.current));
-  }
-
-  function rgb(values) {
-    return typeof values === "undefined"
-      ? null
-      : "rgb(" + values.join(", ") + ")";
-  }
-
-  const GetDescBullets = ({descBullets, isDark}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li
-            key={i}
-            className={isDark ? "subTitle dark-mode-text" : "subTitle"}
-          >
-            {item}
-          </li>
-        ))
-      : null;
-  };
-
+/**
+ * Previously this ran ColorThief over each company logo and painted the card
+ * banner with the dominant colour it extracted. Logos aren't designed to be
+ * sampled that way, so the three cards came out grey, grey-blue and brown —
+ * muddy, unrelated to the site palette, and different on every reload
+ * depending on decode timing. The banner is now a single palette gradient,
+ * with the logo sitting on a clean disc over it.
+ */
+export default function ExperienceCard({cardInfo}) {
   return (
-    <div className={isDark ? "experience-card-dark" : "experience-card"}>
-      <div style={{background: rgb(colorArrays)}} className="experience-banner">
-        <div className="experience-blurred_div"></div>
-        <div className="experience-div-company">
-          <h5 className="experience-text-company">{cardInfo.company}</h5>
-        </div>
-
+    <article className="experience-card card">
+      <div className="experience-banner">
         <img
-          crossOrigin={"anonymous"}
-          ref={imgRef}
-          className="experience-roundedimg"
+          className="experience-logo"
           style={cardInfo.logoStyle}
           src={cardInfo.companylogo}
-          alt={cardInfo.company}
-          onLoad={() => getColorArrays()}
+          alt={`${cardInfo.company} logo`}
+          loading="lazy"
         />
       </div>
-      <div className="experience-text-details">
-        <h5
-          className={
-            isDark
-              ? "experience-text-role dark-mode-text"
-              : "experience-text-role"
-          }
-        >
-          {cardInfo.role}
-        </h5>
-        <h5
-          className={
-            isDark
-              ? "experience-text-date dark-mode-text"
-              : "experience-text-date"
-          }
-        >
+
+      <div className="experience-body">
+        <h3 className="experience-role">{cardInfo.role}</h3>
+        <p className="experience-company">{cardInfo.company}</p>
+        <span className="chip chip--static experience-date">
           {cardInfo.date}
-        </h5>
-        <p
-          className={
-            isDark
-              ? "subTitle experience-text-desc dark-mode-text"
-              : "subTitle experience-text-desc"
-          }
-        >
-          {cardInfo.desc}
-        </p>
-        <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
-        </ul>
+        </span>
+
+        {cardInfo.desc ? (
+          <p className="experience-desc">{cardInfo.desc}</p>
+        ) : null}
+
+        {cardInfo.descBullets && cardInfo.descBullets.length ? (
+          <ul className="experience-bullets">
+            {cardInfo.descBullets.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
-    </div>
+    </article>
   );
 }

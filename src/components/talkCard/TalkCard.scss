@@ -1,6 +1,9 @@
 @import "../../_globalColor";
 
-.container {
+/* Was a bare `.container`, which CRA bundles into the same global stylesheet
+   as everything else — it was overriding the site-wide layout container in
+   `index.css` and turning every section into a two-column flex row. */
+.talk-card-container {
   display: flex;
   justify-content: center;
 }

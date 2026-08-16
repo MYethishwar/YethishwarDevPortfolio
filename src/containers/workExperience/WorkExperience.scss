@@ -1,53 +1,8 @@
-@import "../../_globalColor";
-
-.experience-cards-div {
+.experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1rem 1rem;
-}
-
-.experience-heading {
-  position: relative;
-  display: inline-block;
-  font-size: 56px;
-  font-weight: 400;
-  padding-bottom: 0.5rem;
-}
-.experience-heading::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 5px;
-  width: 64px;
-  border-radius: 999px;
-  background: $accentGradient;
-}
-
-.experience-container {
-  display: flex;
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-
-.experience-container > * {
-  flex: 1;
-}
-
-/* Media Query */
-
-@media (max-width: 1380px) {
-  .experience-heading {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .experience-heading {
-    font-size: 30px;
-    text-align: center;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+  /* Stretch, not start, so three cards of very different copy length still
+     end level with each other. */
+  align-items: stretch;
 }

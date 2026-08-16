@@ -1,106 +1,77 @@
-@import "../../_globalColor";
+.proficiency-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.proficiency-bars {
+  display: grid;
+  gap: 22px;
+}
+
+.skill-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 9px;
+}
+
+.skill-label p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* The percentage was only encoded in the bar's width before, which left the
+   dark theme showing what looked like six identical blank rails. */
+.skill-label span {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brand);
+}
 
 .meter {
-  height: 14px;
   position: relative;
-  background: $progressBarBackground;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
+  height: 9px;
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+
 .meter > span {
   display: block;
   height: 100%;
-  border-radius: 25px;
-  background: $accentGradient;
-  position: relative;
-  overflow: hidden;
-  width: 0%;
-  transition: width 1s $easeOutExpo;
+  border-radius: var(--r-pill);
+  background: var(--gradient);
+  transition: width 1.1s var(--ease);
 }
-.meter > span::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.35) 45%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  background-size: 200% 100%;
-  animation: meter-shine 2.6s ease-in-out infinite;
-}
-@keyframes meter-shine {
-  0% {
-    background-position: 140% 0;
-  }
-  100% {
-    background-position: -60% 0;
-  }
-}
-.skill {
-  line-height: 3.5vw;
-}
-.skill > p {
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-.skill-bars {
-  font-size: 28px;
-  width: 40%;
-}
-.skills-container {
+
+.proficiency-art {
   display: flex;
-  align-items: center;
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  justify-content: center;
 }
-.skills-container > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-.skills-image > img {
-  margin-left: 80px;
-  max-width: 90%;
+
+.proficiency-art > div,
+.proficiency-art svg,
+.proficiency-art img {
+  width: 100%;
+  max-width: 400px;
   height: auto;
 }
 
-/* Media Query */
+@media (max-width: 980px) {
+  .proficiency-grid {
+    grid-template-columns: 1fr;
+  }
 
-@media (max-width: 1456px) {
-  .skills-bar {
-    line-height: 4rem;
-  }
-  .skills-image {
-    display: none;
-    order: 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-container {
-    flex-direction: column;
-  }
-  .skills-bar {
-    line-height: 3rem;
-    margin: 20px;
-  }
-  .skills-image {
-    display: none;
-    order: 2;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .meter > span {
-    transition: none;
-  }
-  .meter > span::after {
-    animation: none;
+  .proficiency-art {
+    order: -1;
+    max-width: 300px;
+    margin-inline: auto;
   }
 }

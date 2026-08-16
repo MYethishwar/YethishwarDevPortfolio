@@ -1,158 +1,80 @@
-@import "../../_globalColor";
+.education-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.education-node {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  /* Lifts the node above the timeline rail drawn by the parent. */
+  position: relative;
+  z-index: 1;
+}
+
+.education-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
 
 .education-card {
+  padding: 22px 24px;
+  gap: 10px;
+}
+
+.education-card-head {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: $lightBackground2;
-  border: 1px solid $lightBorder1;
-  border-radius: $radiusMd;
-  box-shadow: $shadowSm;
-  padding: 1.6rem;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s $easeOutExpo, box-shadow 0.3s $easeOutExpo;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.education-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 5px;
-  background: $accentGradient;
-}
-
-.education-card:hover {
-  transform: translateY(-4px);
-  box-shadow: $shadowMd;
-}
-
-.dark-mode .education-card {
-  background-color: $darkBackground;
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-/* Retired in favor of the card elevation above. */
-.education-card-border {
-  display: none;
-}
-
-.education-head {
-  display: flex;
-  flex-direction: row;
-}
-
-.education-text-school {
-  margin: 0;
-  font-size: 26px;
+.education-school {
+  font-size: 17px;
   font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: auto;
+  color: var(--ink);
 }
 
-.education-roundedimg {
-  object-fit: cover;
-  margin-right: 2rem;
-  width: 5.5rem;
-  height: 5.5rem;
+.education-duration {
   flex-shrink: 0;
-  box-shadow: $shadowSm;
-  border-radius: 50%;
-  border: 3px solid $lightBackground1;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
 }
 
-.education-card-right {
-  max-width: 70%;
-}
-
-.education-text-subHeader {
-  color: $textColor;
-  font-weight: 700;
-  font-size: 18px;
-  margin: 0px;
-  padding-top: 0.5rem;
-  line-height: normal;
-}
-
-.education-text-duration {
-  display: inline-block;
-  color: $accentEnd;
+.education-degree {
+  font-size: 14.5px;
   font-weight: 600;
-  font-size: 15px;
-  margin: 0px;
-  margin-top: 0.5rem;
-  padding: 0.15rem 0.7rem;
-  border-radius: 999px;
-  background: $accentGradientSoft;
+  color: var(--brand);
 }
 
-.dark-mode.education-text-duration {
-  color: #c4b5fd;
-  background: rgba(124, 58, 237, 0.16);
+.education-desc {
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.education-text-desc {
-  margin-top: 0.6rem;
-  margin-bottom: 0.5rem;
-  color: $cardSubtitle;
+.education-bullets {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.education-text-bullets > ul {
-  margin-top: 0.5rem;
-}
-
-/* Media Query */
-
-@media (max-width: 1380px) {
-  .education-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 1.4rem;
-  }
-  .education-card-right {
-    max-width: 100%;
-  }
-  .education-text-subHeader {
-    padding-top: 0.5rem;
-    font-size: 16px;
-  }
-  .education-text-school {
-    font-size: 20px;
-    white-space: normal;
-    height: auto;
-  }
-  .education-text-duration {
-    font-size: 14px;
-  }
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.8rem;
-    margin-right: 0px;
-  }
-}
-
-@media (max-width: 768px) {
-  .education-card {
-    text-align: center;
-    align-items: center;
-  }
-  .education-card-right {
-    max-width: 100%;
-  }
-  .education-roundedimg {
-    margin-top: 0;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.8rem;
-    margin-right: 0;
-  }
-  .education-text-bullets > ul {
-    max-width: 80%;
-    margin: auto;
+@media (max-width: 700px) {
+  .education-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-items: start;
   }
 }

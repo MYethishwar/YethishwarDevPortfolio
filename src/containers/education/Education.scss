@@ -1,66 +1,31 @@
-@import "../../_globalColor";
-
-.education-heading {
+.education-timeline {
   position: relative;
-  display: inline-block;
-  font-size: 56px;
-  font-weight: 400;
-  padding-bottom: 0.5rem;
+  display: grid;
+  gap: 26px;
+  max-width: 880px;
+  margin-inline: auto;
 }
-.education-heading::after {
+
+/* Continuous rail behind the nodes. Fades at both ends so it reads as a
+   thread rather than a hard-stopped line. */
+.education-timeline::before {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 5px;
-  width: 64px;
-  border-radius: 999px;
-  background: $accentGradient;
+  top: 8px;
+  bottom: 8px;
+  left: 27px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border-strong) 8%,
+    var(--border-strong) 92%,
+    transparent
+  );
 }
 
-.education-section {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  padding: 20px 0px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-
-.education-section > * {
-  flex: 1;
-}
-
-.education-card-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  padding-top: 20px;
-}
-
-@media (max-width: 1380px) {
-  .education-card-container {
-    padding-top: 0px;
-  }
-  .education-heading {
-    font-size: 40px;
-  }
-  .education-text-subtitle {
-    font-size: 18px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .education-card-container {
-    padding-top: 0px;
-  }
-  .education-heading {
-    font-size: 30px;
-    text-align: center;
-  }
-  .education-text-subtitle {
-    font-size: 16px;
+@media (max-width: 700px) {
+  .education-timeline::before {
+    display: none;
   }
 }

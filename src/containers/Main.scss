@@ -1,7 +1,34 @@
-@import "../_globalColor";
+/* The dark palette itself lives in `index.css` as token overrides on
+   `.dark-mode`; this only carries the surface + the ambient bird layer. */
 
 .dark-mode {
-  background-color: $darkBackground;
-  color: white;
-  transition: "0.1s";
+  background-color: var(--bg);
+  color: var(--body);
+}
+
+/* Sits above the page content so the flock is actually seen drifting across
+   sections rather than hidden behind their opaque bands — held under the
+   header (z-index 100) and the scroll-top button, and never clickable. */
+.birds-background {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+}
+
+.birds-background--ready {
+  opacity: 0.55;
+}
+
+.dark-mode .birds-background--ready {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  /* Less canvas to hide behind on a phone, so pull them back further. */
+  .birds-background--ready {
+    opacity: 0.4;
+  }
 }

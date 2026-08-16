@@ -1,23 +1,44 @@
 .splash-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
   min-height: 100vh;
+  background: var(--bg-alt);
+  animation: splash-fade 0.5s var(--ease);
 }
 
 .splash-animation-container {
-  height: 50vh;
+  width: min(320px, 62vw);
 }
 
 .splash-title-container {
-  font-size: 2.5rem;
-  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
+
+.splash-title-container .grey-color {
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .splash-title {
-  font-family: "Agustina Regular", cursive;
-  font-weight: bold;
-  font-variant-ligatures: no-common-ligatures;
-  -webkit-font-variant-ligatures: no-common-ligatures;
-  padding: 0 20px;
+  padding: 0 2px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@keyframes splash-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

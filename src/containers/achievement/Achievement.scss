@@ -1,48 +1,11 @@
-@import "../../_globalColor";
-
-.achievement-heading {
-  position: relative;
-  display: inline-block;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0px;
-  padding-bottom: 0.5rem;
-}
-.achievement-heading::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 5px;
-  width: 64px;
-  border-radius: 999px;
-  background: $accentGradient;
-}
-.achievement-subtitle {
-  text-transform: uppercase;
-  margin: 0px;
-  margin-bottom: 50px;
-}
-.subTitle {
-  color: $subTitle;
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 24px;
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .achievement-heading {
-    font-size: 40px;
-  }
-}
-@media (max-width: 768px) {
-  .achievement-heading {
-    font-size: 30px;
-    text-align: center;
-  }
-  .achievement-subtitle {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
+@media (max-width: 520px) {
+  .achievement-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,158 +1,102 @@
-@import "../../_globalColor";
+.achievement-card {
+  height: 100%;
+}
 
-.card-image {
-  max-width: 78%;
-  max-height: 78%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s $easeOutBack;
-}
-.card-title {
-  color: $titleColor;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  font-weight: 700;
-  margin: 15px 0 0 0;
-}
-.card-subtitle {
-  color: $cardSubtitle;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.certificate-card {
-  background-color: $lightBackground2;
-  box-shadow: $shadowSm;
-  padding: 1.5rem;
-  border-radius: $radiusMd;
-  border: 1px solid $lightBorder1;
-  transition: transform 0.35s $easeOutExpo, box-shadow 0.35s $easeOutExpo;
-}
-.certificate-detail-div {
-  text-align: center;
-}
-.certificate-card:hover {
-  transform: translateY(-6px);
-  box-shadow: $shadowMd;
-}
-.certificate-card:hover .card-image {
-  transform: scale(1.05);
-}
-.dark-mode.certificate-card {
-  background-color: $darkBackground;
-  border-color: rgba(255, 255, 255, 0.08);
-}
-.dark-mode.certificate-card:hover {
-  box-shadow: $shadowLgDark;
-}
-.certificate-image-div {
-  position: relative;
-  height: 190px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $accentGradientSoft;
-  border-radius: $radiusSm;
-  margin-bottom: 0.5rem;
-}
-.dark-mode .certificate-image-div {
-  background: rgba(124, 58, 237, 0.1);
-}
-.achievement-cards-div {
+/* These thumbnails are wildly mixed — transparent PNG logos, square marks,
+   and full photographs. A neutral tile with `contain` is the only treatment
+   that suits all three; the old lavender wash tinted the transparent ones and
+   fought the photographic ones. */
+.achievement-media {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.4rem;
-}
-.certificate-card-footer {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.6rem;
-}
-.certificate-card-footer span.certificate-tag {
-  background: $accentGradient;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 999px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  font-weight: 600;
-  height: 2.1em;
-  justify-content: center;
-  white-space: nowrap;
-  line-height: 1.5;
-  margin: 0 0.4rem 0.5rem 0;
-  padding: 0 0.9em;
-  cursor: pointer;
-  box-shadow: 0 6px 16px -6px $accentGlow;
-  transition: transform 0.2s $easeOutExpo, box-shadow 0.2s $easeOutExpo;
-}
-span.certificate-tag:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -6px $accentGlow;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  padding: 20px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
 }
 
-.certificate-card-featured {
-  grid-column: 1 / -1;
+.achievement-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease);
+}
+
+.achievement-card:hover .achievement-media img {
+  transform: scale(1.06);
+}
+
+.achievement-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px 22px 22px;
+}
+
+.achievement-badge {
+  padding: 4px 11px;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.achievement-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.achievement-desc {
+  font-size: 13.6px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.achievement-links {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
 }
-.certificate-card-featured .certificate-image-div {
-  height: auto;
-  width: 320px;
-  flex: 0 0 320px;
-  background: none;
+
+/* The featured certificate spans two columns and turns landscape, so the
+   full certificate scan is legible instead of shrunk into a thumbnail. */
+.achievement-card--featured {
+  grid-column: span 2;
+  flex-direction: row;
+  border-color: var(--brand-ring);
 }
-.certificate-card-featured .card-image {
-  width: 100%;
-  max-width: 100%;
-  max-height: none;
-  height: auto;
-  border-radius: $radiusSm;
-  box-shadow: $shadowMd;
+
+.achievement-card--featured .achievement-media {
+  flex: 0 0 46%;
+  aspect-ratio: auto;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
 }
-.certificate-card-featured:hover .card-image {
-  transform: none;
+
+.achievement-card--featured .achievement-body {
+  justify-content: center;
 }
-.certificate-card-featured .certificate-detail-div {
-  flex: 1 1 260px;
-  text-align: left;
-}
-.certificate-card-featured .certificate-card-footer {
-  justify-content: flex-start;
-}
-.certificate-featured-badge {
-  display: inline-block;
-  background: $accentGradient;
-  color: $lightBackground3;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 999px;
-  padding: 0.3em 0.9em;
-  margin-bottom: 0.6rem;
-  box-shadow: 0 6px 16px -6px $accentGlow;
-}
-@media (max-width: 640px) {
-  .certificate-card-featured {
+
+@media (max-width: 860px) {
+  .achievement-card--featured {
+    grid-column: span 1;
     flex-direction: column;
-    text-align: center;
   }
-  .certificate-card-featured .certificate-image-div {
-    width: 100%;
-    flex-basis: auto;
-  }
-  .certificate-card-featured .certificate-detail-div {
-    text-align: center;
-  }
-  .certificate-card-featured .certificate-card-footer {
-    justify-content: center;
+
+  .achievement-card--featured .achievement-media {
+    flex: none;
+    aspect-ratio: 16 / 10;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 }

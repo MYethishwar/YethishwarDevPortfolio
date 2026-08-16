@@ -1,30 +1,10 @@
-@import "./globalColor";
-
 .App {
-  text-align: center;
   width: 100%;
   overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: $appHeaderBG;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(0.625rem + 2vmin);
-  color: $textColorDark;
-}
-
-.App-link {
-  color: $appLink;
-}
-
+/* `.subTitle` is applied by a lot of the containers; keep it as the single
+   muted-body role rather than a colour each caller picks for itself. */
 .subTitle {
-  color: $subTitle;
+  color: var(--muted);
 }

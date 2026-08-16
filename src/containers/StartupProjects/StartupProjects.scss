@@ -1,126 +1,69 @@
-@import "../../_globalColor";
+/* Three columns rather than four. At four the cards were narrow enough that
+   every title and description hit its line clamp and got cut mid-word. */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 26px;
+}
 
-.card-image {
+.project-card {
+  height: 100%;
+}
+
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+/* `cover` on a fixed ratio: the thumbnails are a mix of screenshots, photos
+   and square logos, and `contain` left most of them floating in a letterbox. */
+.project-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.card-title {
-  color: $titleColor;
-  font-size: 21px;
-  line-height: 1.35;
-  font-weight: 700;
-  margin: 15px 0 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.card-subtitle {
-  color: $cardSubtitle;
-  font-size: 16px;
-  line-height: 1.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.project-card {
-  display: flex;
-  flex-direction: column;
-  background-color: $lightBackground2;
-  padding: 0;
-  border-radius: $radiusMd;
-  border: 1px solid $lightBorder1;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-.project-card-light {
-  box-shadow: $shadowSm;
-  transition: transform 0.35s $easeOutExpo, box-shadow 0.35s $easeOutExpo;
+  transition: transform 0.5s var(--ease);
 }
 
-.project-card-dark {
-  background-color: $darkBackground !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: $shadowMdDark;
-  transition: transform 0.35s $easeOutExpo, box-shadow 0.35s $easeOutExpo;
+.project-card:hover .project-media img {
+  transform: scale(1.05);
 }
 
-.project-detail {
-  text-align: center;
-  padding: 0 1.5rem 1.6rem;
+.project-body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: 10px;
+  padding: 22px 24px 24px;
 }
-.project-card-light:hover {
-  transform: translateY(-6px);
-  box-shadow: $shadowMd;
+
+.project-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
 }
-.project-card-dark:hover {
-  transform: translateY(-6px);
-  box-shadow: $shadowLgDark;
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
 }
-.project-image {
-  position: relative;
-  height: 190px;
-  overflow: hidden;
+
+/* Pushes the link row to the card's bottom edge so footers line up across
+   the row regardless of how long each description runs. */
+.project-links {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $accentGradientSoft;
-}
-.project-image::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 40%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  pointer-events: none;
-}
-
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.4rem;
-}
-
-.project-card-footer {
+  flex-wrap: wrap;
+  gap: 9px;
   margin-top: auto;
-  padding-top: 1.1rem;
+  padding-top: 14px;
 }
 
-.project-card-footer span.project-tag {
-  background: $accentGradient;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 999px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  font-weight: 600;
-  height: 2.1em;
-  justify-content: center;
-  white-space: nowrap;
-  line-height: 1.5;
-  margin: 0 0.4rem 0.5rem 0;
-  padding: 0 0.9em;
-  cursor: pointer;
-  box-shadow: 0 6px 16px -6px $accentGlow;
-  transition: transform 0.2s $easeOutExpo, box-shadow 0.2s $easeOutExpo;
-}
-
-.project-card-footer span.project-tag:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -6px $accentGlow;
-}
-
-@media (max-width: 768px) {
-  .project-subtitle {
-    font-size: 16px;
-    text-align: center;
+@media (max-width: 520px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,68 +1,51 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
+import SectionHeading from "../../components/sectionHeading/SectionHeading";
 import {illustration, skillsSection} from "../../portfolio";
 import {Fade} from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import StyleContext from "../../contexts/StyleContext";
 
 export default function Skills() {
-  const {isDark} = useContext(StyleContext);
   if (!skillsSection.display) {
     return null;
   }
   return (
-    <div className={isDark ? "dark-mode main" : "main"} id="skills">
-      <div className="skills-main-div">
-        <Fade left duration={1000}>
-          <div className="skills-image-div">
-            {illustration.animated ? (
-              <DisplayLottie animationData={codingPerson} />
-            ) : (
-              <img
-                alt="Man Working"
-                src={require("../../assets/images/developerActivity.svg")}
-              ></img>
-            )}
-          </div>
-        </Fade>
-        <Fade right duration={1000}>
-          <div className="skills-text-div">
-            <h1
-              className={isDark ? "dark-mode skills-heading" : "skills-heading"}
-            >
-              {skillsSection.title}{" "}
-            </h1>
-            <p
-              className={
-                isDark
-                  ? "dark-mode subTitle skills-text-subtitle"
-                  : "subTitle skills-text-subtitle"
-              }
-            >
-              {skillsSection.subTitle}
-            </p>
-            <SoftwareSkill />
-            <div>
-              {skillsSection.skills.map((skills, i) => {
-                return (
-                  <p
-                    key={i}
-                    className={
-                      isDark
-                        ? "dark-mode subTitle skills-text"
-                        : "subTitle skills-text"
-                    }
-                  >
-                    {skills}
-                  </p>
-                );
-              })}
+    <section className="section" id="skills">
+      <div className="container">
+        <SectionHeading
+          eyebrow="What I do"
+          title={skillsSection.title}
+          subtitle={skillsSection.subTitle}
+        />
+
+        <div className="skills-grid">
+          <Fade left duration={900} distance="24px">
+            <div className="skills-art">
+              {illustration.animated ? (
+                <DisplayLottie animationData={codingPerson} />
+              ) : (
+                <img
+                  alt="Developer at work"
+                  src={require("../../assets/images/developerActivity.svg")}
+                />
+              )}
             </div>
-          </div>
-        </Fade>
+          </Fade>
+
+          <Fade right duration={900} distance="24px">
+            <div className="skills-copy">
+              <SoftwareSkill />
+              <ul className="skills-list">
+                {skillsSection.skills.map((skill, i) => (
+                  <li key={i}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          </Fade>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

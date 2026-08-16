@@ -16,6 +16,7 @@ import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
+import BirdsBackground from "../components/birds/BirdsBackground";
 import {splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
@@ -39,6 +40,16 @@ const Main = () => {
     }
   }, []);
 
+  // The theme tokens are declared on `.dark-mode`, but <body> sits outside the
+  // React tree — without this the page gutter behind the content keeps the
+  // light background while everything inside it turns dark.
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", isDark);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", isDark ? "#080b14" : "#f6f7fb");
+  }, [isDark]);
+
   const changeTheme = () => {
     setIsDark(!isDark);
   };
@@ -50,20 +61,25 @@ const Main = () => {
           <SplashScreen />
         ) : (
           <>
+            {/* Birds are colour-baked at creation, so the theme flip has to
+                remount the flock rather than update it in place. */}
+            <BirdsBackground key={isDark ? "dark" : "light"} isDark={isDark} />
             <Header />
-            <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <WorkExperience />
-            <Projects />
-            <StartupProject />
-            <Achievement />
-            <Blogs />
-            <Talks />
-            <Twitter />
-            <Podcast />
-            <Profile />
+            <main>
+              <Greeting />
+              <Skills />
+              <StackProgress />
+              <Education />
+              <WorkExperience />
+              <Projects />
+              <StartupProject />
+              <Achievement />
+              <Blogs />
+              <Talks />
+              <Twitter />
+              <Podcast />
+              <Profile />
+            </main>
             <Footer />
             <ScrollToTopButton />
           </>

@@ -1,58 +1,54 @@
 import React from "react";
 import "./AchievementCard.scss";
 
-export default function AchievementCard({cardInfo, isDark}) {
-  function openUrlInNewTab(url, name) {
-    if (!url) {
-      console.log(`URL for ${name} not found`);
-      return;
-    }
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
-
+export default function AchievementCard({cardInfo}) {
   const featured = Boolean(cardInfo.featured);
 
   return (
-    <div
-      className={
-        (isDark ? "dark-mode certificate-card" : "certificate-card") +
-        (featured ? " certificate-card-featured" : "")
-      }
+    <article
+      className={`achievement-card card${
+        featured ? " achievement-card--featured" : ""
+      }`}
     >
-      <div className="certificate-image-div">
+      <div className="achievement-media">
         <img
           src={cardInfo.image}
-          alt={cardInfo.imageAlt || "Card Thumbnail"}
-          className="card-image"
-        ></img>
+          alt={cardInfo.imageAlt || cardInfo.title}
+          loading="lazy"
+        />
       </div>
-      <div className="certificate-detail-div">
+
+      <div className="achievement-body">
         {featured ? (
-          <span className="certificate-featured-badge">Certificate</span>
+          <span className="achievement-badge">Certificate</span>
         ) : null}
-        <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
-          {cardInfo.title}
-        </h5>
-        <p className={isDark ? "dark-mode card-subtitle" : "card-subtitle"}>
-          {cardInfo.description}
-        </p>
+        <h3 className="achievement-title">{cardInfo.title}</h3>
+        <p className="achievement-desc">{cardInfo.description}</p>
+
+        {cardInfo.footer && cardInfo.footer.length ? (
+          <div className="achievement-links">
+            {cardInfo.footer.map((link, i) =>
+              // Entries without a URL are plain metadata (e.g. a verification
+              // key), so they render as a static pill rather than a dead link.
+              link.url ? (
+                <a
+                  key={i}
+                  className="chip"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <span key={i} className="chip chip--static">
+                  {link.name}
+                </span>
+              )
+            )}
+          </div>
+        ) : null}
       </div>
-      <div className="certificate-card-footer">
-        {cardInfo.footer.map((v, i) => {
-          return (
-            <span
-              key={i}
-              className={
-                isDark ? "dark-mode certificate-tag" : "certificate-tag"
-              }
-              onClick={() => openUrlInNewTab(v.url, v.name)}
-            >
-              {v.name}
-            </span>
-          );
-        })}
-      </div>
-    </div>
+    </article>
   );
 }

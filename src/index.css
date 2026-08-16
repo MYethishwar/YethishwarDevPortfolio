@@ -1,3 +1,10 @@
+/* =========================================================================
+   Design tokens + global base.
+   Every colour in the app resolves through a custom property defined here,
+   so light/dark is one switch (`.dark-mode` on <body>) instead of each
+   component hand-rolling its own dark variant.
+   ========================================================================= */
+
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
@@ -7,45 +14,174 @@
   font-display: swap;
 }
 @font-face {
+  /* This was declared as format("woff") for a .ttf payload, which some
+     browsers reject outright — the page then silently fell back to a
+     default sans. */
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+    url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-display: swap;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+
+:root {
+  /* -- type ------------------------------------------------------------ */
+  --font-display: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas,
     monospace;
-}
-html,
-body {
-  scroll-behavior: smooth;
-}
-body {
-  margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/* Media Query */
-@media (max-width: 1380px) {
-  html,
-  body {
-    line-height: normal;
-  }
+
+  /* -- brand ----------------------------------------------------------- */
+  --brand: #4f46e5;
+  --brand-strong: #4338ca;
+  --brand-2: #7c3aed;
+  --brand-soft: #eeebff;
+  --brand-ring: rgba(79, 70, 229, 0.32);
+  --accent: #0d9488;
+  --accent-soft: #d9f2ef;
+  --amber: #d97706;
+  --amber-soft: #fdf0d5;
+  --gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #0d9488 130%);
+  --gradient-text: linear-gradient(120deg, #4f46e5 0%, #7c3aed 48%, #0d9488 100%);
+
+  /* -- surfaces -------------------------------------------------------- */
+  --bg: #f6f7fb;
+  --bg-alt: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f1f3f9;
+  --surface-3: #e8ebf4;
+  --border: #e3e7f0;
+  --border-strong: #cfd6e6;
+
+  /* -- text ------------------------------------------------------------ */
+  --ink: #101426;
+  --body: #414963;
+  --muted: #6b7391;
+  --on-brand: #ffffff;
+
+  /* -- depth ----------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(16, 20, 38, 0.05),
+    0 2px 8px rgba(16, 20, 38, 0.04);
+  --shadow-md: 0 4px 12px rgba(16, 20, 38, 0.07),
+    0 12px 28px rgba(16, 20, 38, 0.07);
+  --shadow-lg: 0 12px 24px rgba(16, 20, 38, 0.09),
+    0 28px 60px rgba(16, 20, 38, 0.11);
+
+  /* -- geometry -------------------------------------------------------- */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 26px;
+  --r-pill: 999px;
+  --container: 1180px;
+  --section-y: clamp(64px, 8vw, 112px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Modern global polish */
+body.dark-mode,
+.dark-mode {
+  --brand: #8b7cff;
+  --brand-strong: #a191ff;
+  --brand-2: #b794f6;
+  --brand-soft: rgba(139, 124, 255, 0.14);
+  --brand-ring: rgba(139, 124, 255, 0.4);
+  --accent: #2dd4bf;
+  --accent-soft: rgba(45, 212, 191, 0.14);
+  --amber: #fbbf24;
+  --amber-soft: rgba(251, 191, 36, 0.14);
+  --gradient: linear-gradient(135deg, #6d5cf5 0%, #9061f9 55%, #14b8a6 130%);
+  --gradient-text: linear-gradient(120deg, #a394ff 0%, #c4a5fb 48%, #5eead4 100%);
+
+  --bg: #080b14;
+  --bg-alt: #0d1220;
+  --surface: #121a2b;
+  --surface-2: #18223a;
+  --surface-3: #1f2b47;
+  --border: #24304a;
+  --border-strong: #35446a;
+
+  --ink: #f3f6ff;
+  --body: #b6c0d9;
+  --muted: #8792ae;
+  --on-brand: #0a0e1a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky header clearance for in-page anchors. */
+  scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
 ::selection {
-  background: rgba(124, 58, 237, 0.25);
+  background: var(--brand-ring);
+  color: var(--ink);
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #7c3aed;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar {
@@ -53,12 +189,157 @@ input:focus-visible,
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--surface-2);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7c3aed, #4f46e5);
-  border-radius: 999px;
+  background: var(--border-strong);
+  border-radius: var(--r-pill);
+  border: 2px solid var(--surface-2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #8b5cf6, #6366f1);
+  background: var(--brand);
+}
+
+/* =========================================================================
+   Layout primitives — every section is built from these, which is what
+   keeps the vertical rhythm and measure identical down the whole page.
+   ========================================================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 40px);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+  background-color: var(--bg);
+  transition: background-color 0.35s var(--ease);
+}
+
+/* Alternating bands give the page structure without extra chrome. */
+.section--alt {
+  background-color: var(--bg-alt);
+}
+
+.section-head {
+  max-width: 760px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.section-sub {
+  margin-top: 14px;
+  font-size: clamp(15px, 1.5vw, 16.5px);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Shared card shell. Anything that looks like a card uses this so radius,
+   border, shadow and hover response never drift between sections. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-ring);
+}
+
+/* Small action chips used for card footers (source links, certificates). */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--brand);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease),
+    border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.chip:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+  transform: translateY(-2px);
+}
+
+/* Static (non-clickable) meta pill — dates, keys, counts. */
+.chip--static {
+  background: var(--brand-soft);
+  border-color: transparent;
+  color: var(--brand);
+  cursor: default;
+}
+.chip--static:hover {
+  transform: none;
+  background: var(--brand-soft);
+  border-color: transparent;
+  color: var(--brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
