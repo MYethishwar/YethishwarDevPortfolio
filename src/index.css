@@ -42,7 +42,12 @@
   --amber: #d97706;
   --amber-soft: #fdf0d5;
   --gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #0d9488 130%);
-  --gradient-text: linear-gradient(120deg, #4f46e5 0%, #7c3aed 48%, #0d9488 100%);
+  --gradient-text: linear-gradient(
+    120deg,
+    #4f46e5 0%,
+    #7c3aed 48%,
+    #0d9488 100%
+  );
 
   /* -- surfaces -------------------------------------------------------- */
   --bg: #f6f7fb;
@@ -90,7 +95,12 @@ body.dark-mode,
   --amber: #fbbf24;
   --amber-soft: rgba(251, 191, 36, 0.14);
   --gradient: linear-gradient(135deg, #6d5cf5 0%, #9061f9 55%, #14b8a6 130%);
-  --gradient-text: linear-gradient(120deg, #a394ff 0%, #c4a5fb 48%, #5eead4 100%);
+  --gradient-text: linear-gradient(
+    120deg,
+    #a394ff 0%,
+    #c4a5fb 48%,
+    #5eead4 100%
+  );
 
   --bg: #080b14;
   --bg-alt: #0d1220;

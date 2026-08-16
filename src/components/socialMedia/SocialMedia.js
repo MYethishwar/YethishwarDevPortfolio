@@ -20,7 +20,11 @@ const NETWORKS = [
   {key: "instagram", icon: "fab fa-instagram", label: "Instagram"},
   {key: "twitter", icon: "fab fa-twitter", label: "Twitter"},
   {key: "medium", icon: "fab fa-medium-m", label: "Medium"},
-  {key: "stackoverflow", icon: "fab fa-stack-overflow", label: "Stack Overflow"},
+  {
+    key: "stackoverflow",
+    icon: "fab fa-stack-overflow",
+    label: "Stack Overflow"
+  },
   {key: "kaggle", icon: "fab fa-kaggle", label: "Kaggle"}
 ];
 

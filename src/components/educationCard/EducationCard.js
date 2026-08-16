@@ -4,9 +4,7 @@ import "./EducationCard.scss";
 
 export default function EducationCard({school}) {
   const GetDescBullets = ({descBullets}) =>
-    descBullets
-      ? descBullets.map((item, i) => <li key={i}>{item}</li>)
-      : null;
+    descBullets ? descBullets.map((item, i) => <li key={i}>{item}</li>) : null;
 
   if (!school.logo) {
     console.error(
@@ -33,9 +31,7 @@ export default function EducationCard({school}) {
             </span>
           </div>
           <p className="education-degree">{school.subHeader}</p>
-          {school.desc ? (
-            <p className="education-desc">{school.desc}</p>
-          ) : null}
+          {school.desc ? <p className="education-desc">{school.desc}</p> : null}
           {school.descBullets ? (
             <ul className="education-bullets">
               <GetDescBullets descBullets={school.descBullets} />
