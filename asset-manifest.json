@@ -1,11 +1,13 @@
 {
   "files": {
-    "main.css": "/YethishwarDevPortfolio/static/css/main.431f129c.css",
-    "main.js": "/YethishwarDevPortfolio/static/js/main.8857c9b4.js",
+    "main.css": "/YethishwarDevPortfolio/static/css/main.34614d0a.css",
+    "main.js": "/YethishwarDevPortfolio/static/js/main.826b5d4e.js",
     "static/css/64.bba8fa55.chunk.css": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css",
     "static/js/64.24a93158.chunk.js": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css",
     "static/js/769.2c9037c1.chunk.js": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js",
+    "static/js/534.9f742277.chunk.js": "/YethishwarDevPortfolio/static/js/534.9f742277.chunk.js",
+    "static/js/807.409b6a7e.chunk.js": "/YethishwarDevPortfolio/static/js/807.409b6a7e.chunk.js",
     "static/media/Atliq.webp": "/YethishwarDevPortfolio/static/media/Atliq.8a7eba6a798e00e1bf19.webp",
     "static/media/resume.pdf": "/YethishwarDevPortfolio/static/media/resume.bd78fc755ca192514b06.pdf",
     "static/media/datascience.webp": "/YethishwarDevPortfolio/static/media/datascience.e50c6f7b6aa5b0c61728.webp",
@@ -31,15 +33,17 @@
     "static/media/pwaLogo.webp": "/YethishwarDevPortfolio/static/media/pwaLogo.75f2e8f6553c446e0e4d.webp",
     "index.html": "/YethishwarDevPortfolio/index.html",
     "static/media/talksCardBack.svg": "/YethishwarDevPortfolio/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.431f129c.css.map": "/YethishwarDevPortfolio/static/css/main.431f129c.css.map",
-    "main.8857c9b4.js.map": "/YethishwarDevPortfolio/static/js/main.8857c9b4.js.map",
+    "main.34614d0a.css.map": "/YethishwarDevPortfolio/static/css/main.34614d0a.css.map",
+    "main.826b5d4e.js.map": "/YethishwarDevPortfolio/static/js/main.826b5d4e.js.map",
     "64.bba8fa55.chunk.css.map": "/YethishwarDevPortfolio/static/css/64.bba8fa55.chunk.css.map",
     "64.24a93158.chunk.js.map": "/YethishwarDevPortfolio/static/js/64.24a93158.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/YethishwarDevPortfolio/static/css/769.b3cbb36b.chunk.css.map",
-    "769.2c9037c1.chunk.js.map": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js.map"
+    "769.2c9037c1.chunk.js.map": "/YethishwarDevPortfolio/static/js/769.2c9037c1.chunk.js.map",
+    "534.9f742277.chunk.js.map": "/YethishwarDevPortfolio/static/js/534.9f742277.chunk.js.map",
+    "807.409b6a7e.chunk.js.map": "/YethishwarDevPortfolio/static/js/807.409b6a7e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.431f129c.css",
-    "static/js/main.8857c9b4.js"
+    "static/css/main.34614d0a.css",
+    "static/js/main.826b5d4e.js"
   ]
 }
